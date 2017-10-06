@@ -1,0 +1,44 @@
+---
+baseurl: "/"
+languageCode: en-us
+languageLang: en
+title: Bytellio software development
+params:
+  copyright: bytellio.com
+  social:
+    twitter: https://twitter.com/Bytellio
+    facebook: https://www.facebook.com/pages/Bytellio/570499729743005
+    google: https://plus.google.com/+BytellioSoftware
+    linkedin: https://www.linkedin.com/company/bytellio-com
+  contact:
+    email: info@bytellio.com
+    address: Augustinčićeva 3, Zagreb, Croatia
+  author:
+    name: Ante Mihalj
+    about: "I am a sofware engineer and a founder of Bytellio with 10+ years of experience in building all kinds of software: enterprise, start-up or just-for-fun.
+    I have been involved with lots of backend and frontend technologies, relational or NoSQL databases, cloud computing and I always keep my eye on a horizont"
+    contact:
+      email: ante.mihalj@bytellio.com
+    image: 
+      small: /img/common/ante-mihalj-240.png
+      medium: /img/common/ante-mihalj-240.png
+      big: /img/common/ante-mihalj-240.png
+    social:
+      twitter: http://twitter.com/ante_mihalj
+      facebook: http://www.facebook.com/ante.mihalj.94
+      google: http://plus.google.com/u/1/102457268170314256619
+      linkedin: http://hr.linkedin.com/pub/ante-mihalj/50/580/a35
+
+
+# RSS, categories and tags disabled for an easy start
+# See configuration options for more details: 
+# https://gohugo.io/getting-started/configuration/#toml-configuration
+disableKinds: ["RSS", "taxonomy", "taxonomyTerm"]
+
+menu:
+    top:
+    - {Name: Home, Identifier: home, Url: "/", Weight: 10}
+    - {Name: Development, Identifier: solutions, Url: "/development/", Weight: 20}
+    - {Name: Contact, Identifier: contact, Url: "/contact/", Weight: 30}
+    - {Name: Posts, Identifier: post, Url: "/post/", Weight: 30}
+---

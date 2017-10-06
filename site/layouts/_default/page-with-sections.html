@@ -1,0 +1,47 @@
+{{ partial "b-head" . }} 
+<div class="layout-wide">
+  <header class="section_title">
+    {{ partial "b-nav" . }} 
+    {{ partial "b-title-bar" . }}
+  </header>
+
+  {{ partial "b-breadcrumbs" .}} 
+  {{ with .Params.image }} <img src="{{ . }}" alt="header" class="header_image"> {{ end }}
+  <section class="content_info">
+    <div class="solution">
+      <div class="row-fluid info_title">
+        <div class="vertical_line">
+          <div class="circle_bottom"></div>
+        </div>
+        <div class="info_vertical text-left animated fadeInUp">
+          <p>{{ with .Params.content }} {{ . | markdownify }} {{ end }}</p>
+        </div>
+        <div class="vertical_line"></div>
+        <i class="icon-cogs right"></i>
+      </div>
+      {{ with .Params.sections }}{{ range . }}
+      <div class="row-fluid info_title">
+          <div class="vertical_line">
+              <div class="circle_top"></div>
+          </div>
+          <div class="info_vertical animated {{ with .animation }} {{ . }}{{ end }}">
+              <h2><a href="{{ .related }}">{{ .title  | markdownify }}</a></h2>
+              <div class="solution-split">
+                {{ with .image }} <img src="{{ . }}" alt="Image" class="padding_top_mini padding_bottom_mini"> {{ end }}
+                <p class="{{ .class }}">{{ with .content }} {{ . | markdownify }}{{ end }}</p>
+              </div>
+              {{ with .related }}
+              <div>
+                 <a href="{{ . }}" class="find_more"> Find out more ... </a>
+              </div>
+              {{ end }}
+          </div>
+          <div class="vertical_line"></div>
+          {{ with .icon }} <i class="{{ . }}"> {{ end }}</i>
+      </div>
+      {{ end }}{{ end }}
+    </div>
+  </section>
+
+  {{ partial "b-footer" . }}
+</div>

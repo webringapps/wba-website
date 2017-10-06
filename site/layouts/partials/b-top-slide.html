@@ -1,0 +1,16 @@
+<div class="camera_wrap" id="slide">
+    {{ range . }}
+    <div class="image-resizable" {{ with .image }}data-src="{{ . }}" {{ end }} {{ with .imageTab }}data-src-tablet="{{ . }}" {{ end }} {{ with .imageMob }}data-src-mobile="{{ . }}" {{ end }} {{ with .imageXsMob }}data-src-smallmobile="{{ . }}" {{ end }}>
+        <div class="camera_caption fadeFromLeft">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <h3 class="h1 animated fadeInDown">{{ with .title }}{{ . }}{{ end }}</h3>
+                        <p class="animated fadeInUp">{{ with .subtitle }}{{ . | markdownify }}{{ end }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>

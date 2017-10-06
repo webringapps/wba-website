@@ -1,0 +1,22 @@
+{{ partial "b-head" . }} 
+<header class="slide">
+  {{ partial "b-nav" . }} 
+  {{ partial "b-top-slide" .Params.slider }} 
+</header>
+<section class="content_info">
+  <div class="row-fluid info_title">
+      <div class="vertical_line">
+          <div class="circle_top"></div>
+      </div>
+      <div class="info_vertical animated fadeInUp">
+          <h1>{{ .Params.h1 | markdownify }}</h1>
+          <p class="text-left">{{ .Params.intro | markdownify }}</p>
+      </div>
+      <div class="vertical_line"></div>
+      <i class="icon-cogs right fadeInUp"></i>
+  </div>
+   
+  {{ partial "b-home-sections" .Params.sections }} 
+  {{ partial "b-home-circles" . }}
+</section>
+{{ partial "b-footer" . }}

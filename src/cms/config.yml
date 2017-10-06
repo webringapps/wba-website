@@ -1,0 +1,186 @@
+backend:
+  name: github
+  repo: <% GITHUB_REPOSITORY %> # Gulp will replace this with your GitHub repository
+  branch: master # Branch to update (master by default)
+
+media_folder: "site/static/img" # Folder where user uploaded files should go
+public_folder: "img"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "site/content/index.md"
+        label: "Home"
+        name: "index"
+        fields:
+          - label: SEO
+            name: seo
+            widget: object
+            required: false
+            fields:
+            - {label: Meta Title, name: metaTitle, widget: string}
+            - {label: Meta Keywords, name: keywords, widget: string}
+            - {label: Meta Description, name: metaDescription, widget: text}
+          - {label: Title, name: title, widget: string, default: Home}
+          - {label: Type, name: type, widget: hidden, default: home}
+          - {label: Page, name: page, widget: hidden, default: "/index.html"}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: Heading, name: h1, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Slider
+            name: slider
+            widget: list
+            fields:
+            - {label: Title, name: title, widget: string}
+            - {label: Subtitle, name: subtitle, widget: markdown}
+            - {label: Image, name: image, widget: image}
+            - {label: Image Tablet, name: imageTab, widget: image}
+            - {label: Image Mob, name: imageMob, widget: image}
+            - {label: Image Small Mob, name: imageXsMob, widget: image}
+          
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+            - {label: Title, name: title, widget: string}
+            - {label: Type, name: type, widget: string}
+            - {label: Animation, name: animation, widget: string}
+            - {label: Icon, name: icon, widget: string}
+            - {label: Class, name: class, widget: string}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Content, name: content, widget: markdown, required: false}
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            required: false
+            fields:
+            - {label: Name, name: name, widget: string}
+            - {label: Avatar, name: avatar, widget: image, required: false}
+            - {label: Testimonial, name: testimonial, widget: text}
+
+      - file: "site/content/development.md"
+        label: "Development"
+        name: "development"
+        fields:
+          - label: SEO
+            name: seo
+            widget: object
+            required: false
+            fields:
+            - {label: Meta Title, name: metaTitle, widget: string}
+            - {label: Meta Keywords, name: keywords, widget: string}
+            - {label: Meta Description, name: metaDescription, widget: text}
+          - {label: Title, name: title, widget: string}
+          - {label: Type, name: type, widget: hidden, default: page}
+          - {label: Page, name: page, widget: hidden, default: "/development.html"}
+          - {label: Heading, name: h1, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - {label: Image, name: "image", widget: "image", required: false}
+          - {label: Content, name: content, widget: markdown, required: false}
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+            - {label: Title, name: title, widget: string}
+            - {label: Type, name: type, widget: string}
+            - {label: Animation, name: animation, widget: string}
+            - {label: Icon, name: icon, widget: string}
+            - {label: Class, name: class, widget: string}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Content, name: content, widget: markdown, required: false}
+            - {label: Related, name: related, widget: relation, required: false, collection: technologies, searchFields: [title], valueField: Permalink }
+          
+      - file: "site/content/post.md"
+        label: "Post landing page"
+        name: "post"
+        fields:
+          - label: SEO
+            name: seo
+            widget: object
+            required: false
+            fields:
+            - {label: Meta Title, name: metaTitle, widget: string}
+            - {label: Meta Keywords, name: keywords, widget: string}
+            - {label: Meta Description, name: metaDescription, widget: text}
+          - {label: Title, name: title, widget: string}
+          - {label: Type, name: type, widget: hidden, default: page}
+          - {label: Page, name: page, widget: hidden, default: "/post.html"}
+          - {label: Heading, name: h1, widget: string}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Content, name: content, widget: markdown, required: false}
+
+
+      
+      - file: "site/content/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - label: SEO
+            name: seo
+            widget: object
+            required: false
+            fields:
+            - {label: Meta Title, name: meta-title, widget: string}
+            - {label: Meta Keywords, name: keywords, widget: string}
+            - {label: Meta Description, name: meta-description, widget: text}
+          - {label: Title, name: title, widget: string}
+          - {label: Type, name: type, widget: hidden, default: page}
+          - {label: Page, name: page, widget: hidden, default: "/contact.html"}
+          - {label: Heading, name: h1, widget: string}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Content, name: content, widget: markdown, required: false}
+
+  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Post" # Used in the UI, ie.: "New Post"
+    folder: "site/content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - label: SEO
+        name: seo
+        widget: object
+        required: false
+        fields:
+        - {label: Meta Title, name: metaTitle, widget: string}
+        - {label: Meta Keywords, name: keywords, widget: string}
+        - {label: Meta Description, name: metaDescription, widget: text}
+      - {label: Title, name: title, widget: string}
+      - {label: Type, name: type, widget: hidden, default: page}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: Heading, name: h1, widget: string}
+      - {label: Image, name: "image", widget: "image", required: false}
+      - {label: Intro, name: intro, widget: text}
+      - {label: Content, name: content, widget: markdown, required: false}
+      
+  - name: "technologies" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Dev pages" # Used in the UI, ie.: "New Post"
+    folder: "site/content/technologies" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - label: SEO
+        name: seo
+        widget: object
+        required: false
+        fields:
+        - {label: Meta Title, name: metaTitle, widget: string}
+        - {label: Meta Keywords, name: keywords, widget: string}
+        - {label: Meta Description, name: metaDescription, widget: text}
+      - {label: Title, name: title, widget: string}
+      - {label: Type, name: type, widget: hidden, default: page}
+      - {label: Page, name: page, widget: hidden, default: "/development.html"}
+      - {label: Heading, name: h1, widget: string}
+      - {label: Subtitle, name: subtitle, widget: string}
+      - {label: Image, name: "image", widget: "image", required: false}
+      - {label: Content, name: content, widget: markdown, required: false}
+      - label: Sections
+        name: sections
+        widget: list
+        required: false
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Type, name: type, widget: string}
+        - {label: Animation, name: animation, widget: string}
+        - {label: Icon, name: icon, widget: string}
+        - {label: Class, name: class, widget: string}
+        - {label: Image, name: image, widget: image, required: false}
+        - {label: Content, name: content, widget: markdown, required: false}

@@ -1,0 +1,6 @@
+<ul class="social">
+    {{ with .google }}<li class="google"><span><i class="icon-google-plus"></i></span><a href="{{.}}" rel="publisher">Google+</a></li>{{ end }}
+    {{ with .facebook }}<li class="facebook"><span><i class="icon-facebook"></i></span><a href="{{.}}">Facebook</a></li>{{ end }}
+    {{ with .twitter }}<li class="twitter"><span><i class="icon-twitter"></i></span><a href="{{.}}">Twitter</a></li>{{ end }}
+    {{ with .linkedin }}<li class="linkedin"><span><i class="icon-linkedin"></i></span><a href="{{.}}">Linkedin</a></li>{{ end }}
+</ul>

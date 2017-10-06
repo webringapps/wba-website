@@ -1,0 +1,14 @@
+{{ range . }}
+<div class="row-fluid info_title">
+    <div class="vertical_line">
+        <div class="circle_bottom"></div>
+    </div>
+    <div class="info_vertical animated ">
+        <h2>{{ .title  | markdownify }}</h2>
+        
+        <p class="{{ .class }}">{{ with .content }} {{ . | markdownify}}{{ end }}</p> 
+    </div>
+    <div class="vertical_line"></div>
+    <i class="{{ .icon }}"></i>
+</div>
+{{ end }}
